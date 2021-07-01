@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Campaign.destroy_all
+
+vitor = User.create(
+  email: "vitor@hikeasy.fit",
+  password: "123456",
+  username: "vitor",
+  status: "qualified",
+  profession: "engineer",
+  service: "mentor"
+)
+Campaign.create(
+  title: Faker::Commerce.department,
+  tags: Faker::Commerce.product_name,
+  estimated_duration: "3 weeks",
+  expert: vitor
+)
+
+puts "campaign is created"

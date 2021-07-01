@@ -1,0 +1,7 @@
+<ul>
+<% @campaigns.each do |campaign| %>
+  <li><h1><%= campaign.title %></h1></li>
+  <% end %>
+</ul>
+
+<%= link_to 'new Campaign', new_campaign_path  %>
