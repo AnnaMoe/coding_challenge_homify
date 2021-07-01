@@ -16,7 +16,7 @@ class CampaignsController < ApplicationController
 
   def create
     redirect_to campaigns_path, notice: 'You are not allowed to create a campaign.' unless current_user.expert
-    
+
     @campaign = Campaign.new(campaign_params)
     @campaign.expert = current_user
 

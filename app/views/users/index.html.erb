@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+    <li><h1><%= user.username %></h1></li>
+    <% if current_user.expert %>
+      <%= link_to 'Edit user', edit_user_path(user)  %> 
+    <% end %>
+  <% end %>
+</ul>
+
