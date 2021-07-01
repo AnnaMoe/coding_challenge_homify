@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Campaign.destroy_all
+User.destroy_all
 
 vitor = User.create(
   email: "vitor@hikeasy.fit",
@@ -14,8 +15,20 @@ vitor = User.create(
   username: "vitor",
   status: "qualified",
   profession: "engineer",
-  service: "mentor"
+  service: "mentor",
+  role: "expert"
 )
+
+anna = User.create(
+  email: "anna@hikeasy.fit",
+  password: "123456",
+  username: "anna",
+  status: "not_qualified",
+  profession: "junior",
+  service: "learner",
+  role: "novice"
+)
+
 Campaign.create(
   title: Faker::Commerce.department,
   tags: Faker::Commerce.product_name,

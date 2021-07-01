@@ -4,4 +4,6 @@
   <% end %>
 </ul>
 
-<%= link_to 'new Campaign', new_campaign_path  %>
+<% if current_user.expert %>
+  <%= link_to 'new Campaign', new_campaign_path  %> 
+<% end %>
