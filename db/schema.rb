@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_181925) do
+ActiveRecord::Schema.define(version: 2021_07_02_110134) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string "title"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_181925) do
     t.integer "novice_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["campaign_id"], name: "index_todos_on_campaign_id"
     t.index ["expert_id"], name: "index_todos_on_expert_id"
     t.index ["novice_id"], name: "index_todos_on_novice_id"

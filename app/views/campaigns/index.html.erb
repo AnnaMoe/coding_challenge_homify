@@ -1,9 +1,10 @@
 <ul>
 <% @campaigns.each do |campaign| %>
-  <li><h1><%= campaign.title %></h1></li>
+  <li><h1><%= link_to campaign.title, campaign_path(campaign) %></h1></li>
   <% end %>
 </ul>
 
 <% if current_user.expert %>
   <%= link_to 'new Campaign', new_campaign_path  %> 
 <% end %>
+

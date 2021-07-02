@@ -1,4 +1,16 @@
-<h1><%= @campaign.title %></h1>
-<p><%= @campaign.tags %></p>
+<div class="container">
+  <div class="row">
+    <h1><%= @campaign.title %></h1>
+    <p><%= @campaign.tags %></p>
+  </div>
 
-<%= link_to 'Back', campaigns_path %>
+
+  <div class="row">
+    <div class="col-6">
+      <h2>To Do's</h2>
+      <%= render "todo" %>
+    </div>
+  </div>
+
+  <%= link_to 'Back', campaigns_path %>
+</div>
