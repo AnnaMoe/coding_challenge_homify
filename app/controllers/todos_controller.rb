@@ -4,7 +4,7 @@ def create
     @campaign = Campaign.find(params[:campaign_id])
     @todo = Todo.new(todo_params)
     @todo.campaign = @campaign
-    if @todo.save
+    if @todo.save!
       redirect_to campaign_path(@campaign)
     else
       render 'campaigns/show'

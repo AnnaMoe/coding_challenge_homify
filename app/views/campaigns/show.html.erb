@@ -7,6 +7,13 @@
 
   <div class="row">
     <div class="col-6">
+    <% @campaign.todos.each do |todo| %>
+      <%= todo.name %>
+    <% end %>
+     
+
+    </div>
+    <div class="col-6">
       <h2>To Do's</h2>
       <%= render "todo" %>
     </div>
