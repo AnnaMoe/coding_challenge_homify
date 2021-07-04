@@ -1,25 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-6">
       <h1><%= @campaign.title %></h1>
       <p><%= @campaign.tags %></p>
+      <%= link_to "Leave a comment", new_campaign_comment_path(@campaign), class: "btn btn-success"  %>
+    </div>
+    <div class="col-6 mt-5">
+      <h4>Comments</h4>
+      <% @campaign.comments.each do |comment| %>
+        <div><%= comment.title %></div>
+      <% end %>
     </div>
   </div>
-
-
   <div class="row">
     <div class="col-6">
-    <h2>To Do's</h2>
-    <% @campaign.todos.each do |todo| %>
-      <div><%= todo.name %></div>
-    <% end %>
-     
-
+      <h2>To Do's</h2>
+      <% @campaign.todos.each do |todo| %>
+        <div><%= todo.name %></div>
+        <h4>Comments</h4>
+        <% todo.comments.each do |comment| %>
+          <div><%= comment.title %></div>
+        <% end %>
+        <%= link_to "Leave a comment on todo", new_campaign_todo_comment_path(@campaign, todo), class: "btn btn-success"  %>
+      <% end %>
     </div>
     <div class="col-6">
       <%= render "todo" %>
     </div>
   </div>
-
   <%= link_to 'Back', campaigns_path %>
 </div>

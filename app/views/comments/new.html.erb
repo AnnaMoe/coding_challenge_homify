@@ -1,0 +1,9 @@
+<div class="col-12">
+  <div class="bg-white rounded p-3">
+    <h4>Add your comment</h4>
+    <%= simple_form_for [@campaign, @todo, @comment] do |f| %>
+      <%= f.input :title, placeholder: 'Add your comment here...' %>
+      <%= f.submit class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>

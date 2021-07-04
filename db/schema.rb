@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_154202) do
+ActiveRecord::Schema.define(version: 2021_07_03_080908) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2021_07_02_154202) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["expert_id"], name: "index_campaigns_on_expert_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "title"
+    t.string "receiver_type"
+    t.integer "receiver_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_type", "receiver_id"], name: "index_comments_on_receiver_type_and_receiver_id"
   end
 
   create_table "todos", force: :cascade do |t|
