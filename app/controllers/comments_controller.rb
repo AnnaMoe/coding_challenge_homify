@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     if (params[:todo_id])
       @todo = Todo.find(params[:todo_id])
+      redirect_to campaign_path(@campaign) if current_user.expert
     else
       # need this declaration of nil, because the simple_form asks for the @todo variable
       @todo = nil

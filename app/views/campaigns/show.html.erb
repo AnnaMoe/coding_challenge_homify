@@ -21,7 +21,8 @@
         <% todo.comments.each do |comment| %>
           <div><%= comment.title %></div>
         <% end %>
-        <%= link_to "Leave a comment on todo", new_campaign_todo_comment_path(@campaign, todo), class: "btn btn-success"  %>
+        
+        <%= link_to "Leave a comment on todo", new_campaign_todo_comment_path(@campaign, todo), class: "btn btn-success" unless current_user.expert  %>
       <% end %>
     </div>
     <div class="col-6">
