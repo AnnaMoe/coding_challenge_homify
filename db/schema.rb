@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_03_080908) do
+ActiveRecord::Schema.define(version: 2021_07_04_201325) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string "title"
@@ -36,7 +36,9 @@ ActiveRecord::Schema.define(version: 2021_07_03_080908) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.integer "user_id"
     t.index ["campaign_id"], name: "index_todos_on_campaign_id"
+    t.index ["user_id"], name: "index_todos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +60,5 @@ ActiveRecord::Schema.define(version: 2021_07_03_080908) do
 
   add_foreign_key "campaigns", "users", column: "expert_id"
   add_foreign_key "todos", "campaigns"
+  add_foreign_key "todos", "users"
 end
