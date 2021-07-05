@@ -13,4 +13,5 @@ class User < ApplicationRecord
   def novice
     role == "novice"
   end
+
 end

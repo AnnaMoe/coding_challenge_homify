@@ -17,12 +17,12 @@
       <h2>To Do's</h2>
       <% @campaign.todos.each do |todo| %>
         <div><%= todo.name %></div>
+        
         <h4>Comments</h4>
         <% todo.comments.each do |comment| %>
           <div><%= comment.title %></div>
         <% end %>
-        
-        <%= link_to "Leave a comment on todo", new_campaign_todo_comment_path(@campaign, todo), class: "btn btn-success" unless current_user.expert  %>
+        <%= link_to "Leave a comment on todo", new_campaign_todo_comment_path(@campaign, todo), class: "btn btn-success" if todo.user.novice %>
       <% end %>
     </div>
     <div class="col-6">
