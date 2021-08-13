@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "campaigns#index"
   resources :campaigns, only: [:index, :show, :new, :create] do
     resources :comments, only: [:new, :create ]
-    resources :todos, only: [:new, :show, :create ] do
+    resources :todos, only: [:create ] do
       resources :comments, only: [:new, :create ]
     end
   end

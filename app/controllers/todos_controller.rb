@@ -6,9 +6,10 @@ class TodosController < ApplicationController
     @todo.campaign = @campaign
     @todo.user = current_user
 
-    if @todo.save
+    if @todo.save!
       redirect_to campaign_path(@campaign)
     else
+      flash[:danger] = "Your todo could not be saved."
       render 'campaigns/show'
     end
   end

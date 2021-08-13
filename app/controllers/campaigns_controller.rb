@@ -10,9 +10,11 @@ class CampaignsController < ApplicationController
   end
 
   def new
-    redirect_to campaigns_path, notice: 'You are not allowed to create a campaign.' unless current_user.expert
-    
-    @campaign = Campaign.new
+    if current_user.expert
+      @campaign = Campaign.new
+    else
+      redirect_to campaigns_path, notice: 'You are not allowed to create a campaign.'
+    end
   end
 
   def create
